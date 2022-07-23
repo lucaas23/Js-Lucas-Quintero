@@ -4,25 +4,25 @@ const baseDeDatos = [
       id: 1,
       nombre: 'One Million',
       precio: 5300,
-      imagen: 'vida.jpg'
+      imagen: './image/one.jpg'
   },
   {
       id: 2,
       nombre: 'Invictus',
       precio: 4300,
-      imagen: 'invitus.jpg'
+      imagen: './image/invictus.jpg'
   },
   {
       id: 3,
       nombre: 'Creed',
       precio: 4000,
-      imagen: 'creed.jpg'
+      imagen: './image/creed.jpg'
   },
   {
       id: 4,
       nombre: 'Black xs',
       precio: 5300,
-      imagen: 'black.jpg'
+      imagen: './image/black.jpg'
   }
 
 ];
@@ -63,7 +63,7 @@ function renderizarProductos() {
       // Boton 
       const miNodoBoton = document.createElement('button');
       miNodoBoton.classList.add('btn', 'btn-primary');
-      miNodoBoton.textContent = '+';
+      miNodoBoton.textContent = 'Agregar al carrito';
       miNodoBoton.setAttribute('marcador', info.id);
       miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
       // Insertamos
