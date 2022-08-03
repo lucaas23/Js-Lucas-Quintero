@@ -34,6 +34,7 @@ const DOMcarrito = document.querySelector('#carrito');
 const DOMtotal = document.querySelector('#total');
 const DOMbotonVaciar = document.querySelector('#boton-vaciar');
 const miLocalStorage = window.localStorage;
+cargarCarritoDeLocalStorage();
 
 // Funciones
 
@@ -82,6 +83,7 @@ function renderizarProductos() {
 function anyadirProductoAlCarrito(evento) {
   // Anyadimos el Nodo a nuestro carrito
   carrito.push(evento.target.getAttribute('marcador'))
+  guardarCarritoEnLocalStorage();
   // Actualizamos el carrito 
   renderizarCarrito();
 
@@ -130,12 +132,48 @@ function renderizarCarrito() {
 * Evento para borrar un elemento del carrito
 */
 function borrarItemCarrito(evento) {
+
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success',
+      cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+  })
+  
+  swalWithBootstrapButtons.fire({
+    title: 'Atencion!!',
+    text: "Deseas borrar el producto?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Si, borrar!',
+    cancelButtonText: 'No, cancelar',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      swalWithBootstrapButtons.fire(
+        'Borrado!',
+        'Haz borrado el produto.',
+        'success'
+      )
+    } else if (
+      /* Read more about handling dismissals below */
+      result.dismiss === Swal.DismissReason.cancel
+    ) {
+      swalWithBootstrapButtons.fire(
+        'Cancelar',
+        'Cancelaste :)',
+        'error'
+      )
+    }
+  })
   // Obtenemos el producto ID que hay en el boton pulsado
   const id = evento.target.dataset.item;
   // Borramos todos los productos
   carrito = carrito.filter((carritoId) => {
       return carritoId !== id;
   });
+  guardarCarritoEnLocalStorage();
   // volvemos a renderizar
   renderizarCarrito();
 }
