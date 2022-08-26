@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "nombre": "One Million",
+        "precio": 5300,
+        "imagen": "./image/one.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Invictus",
+        "precio": 4300,
+        "imagen": "./image/invictus.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Creed",
+        "precio": 4000,
+        "imagen": "./image/creed.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Black xs",
+        "precio": 5300,
+        "imagen": "./image/black.jpg"
+    }
+]

@@ -1,31 +1,12 @@
 // Variables
-const baseDeDatos = [
-  {
-      id: 1,
-      nombre: 'One Million',
-      precio: 5300,
-      imagen: './image/one.jpg'
-  },
-  {
-      id: 2,
-      nombre: 'Invictus',
-      precio: 4300,
-      imagen: './image/invictus.jpg'
-  },
-  {
-      id: 3,
-      nombre: 'Creed',
-      precio: 4000,
-      imagen: './image/creed.jpg'
-  },
-  {
-      id: 4,
-      nombre: 'Black xs',
-      precio: 5300,
-      imagen: './image/black.jpg'
-  }
 
-];
+let baseDeDatos = [];
+fetch('./data.json')
+  .then(res => res.json())
+  .then(json => {
+    baseDeDatos = json;
+    renderizarProductos()
+  });
 
 let carrito = [];
 const divisa = '$';
@@ -88,6 +69,18 @@ function anyadirProductoAlCarrito(evento) {
   renderizarCarrito();
 
 }
+/**
+* Evento para boton Comprar 
+*/
+function Botoncompra(evento) {
+  
+  carrito.push(evento.target.getAttribute('btn'))
+  guardarCarritoEnLocalStorage();
+  // Actualizamos el carrito 
+  renderizarCarrito();
+}
+
+
 
 /**
 * Dibuja todos los productos guardados en el carrito
@@ -174,7 +167,7 @@ function borrarItemCarrito(evento) {
       return carritoId !== id;
   });
   guardarCarritoEnLocalStorage();
-  // volvemos a renderizar
+  // Volvemos a renderizar
   renderizarCarrito();
 }
 
@@ -221,5 +214,5 @@ function cargarCarritoDeLocalStorage () {
 DOMbotonVaciar.addEventListener('click', vaciarCarrito);
 
 // Inicio
-renderizarProductos();
+//renderizarProductos();
 renderizarCarrito();
