@@ -1,26 +1,38 @@
 [
     {
         "id": 1,
-        "nombre": "One Million",
+        "nombre": "Paco Rabanne One Million",
         "precio": 5300,
         "imagen": "./image/one.jpg"
     },
     {
         "id": 2,
-        "nombre": "Invictus",
+        "nombre": "Paco Rabanne Invictus",
         "precio": 4300,
         "imagen": "./image/invictus.jpg"
     },
     {
         "id": 3,
-        "nombre": "Creed",
+        "nombre": "Creed Aventus",
         "precio": 4000,
         "imagen": "./image/creed.jpg"
     },
     {
         "id": 4,
-        "nombre": "Black xs",
+        "nombre": "Black XS",
         "precio": 5300,
         "imagen": "./image/black.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "Olympea",
+        "precio": 5300,
+        "imagen": "./image/olympea.jpg"
+    },
+    {
+        "id": 6,
+        "nombre": "The One",
+        "precio": 4300,
+        "imagen": "./image/the one.jpg"
     }
 ]
